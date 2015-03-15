@@ -1,0 +1,11 @@
+logs/*
+!.gitkeep
+.DS_Store
+.idea
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+app/scripts/generated/env.js
+dist_production

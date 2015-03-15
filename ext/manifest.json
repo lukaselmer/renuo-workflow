@@ -1,0 +1,57 @@
+{
+  "name": "Renuo Workflow",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Enhances Redmine and Gitlab, and combines them according to the Renuo workflow.",
+  "homepage_url": "https://www.renuo.ch",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "options_page": "src/options_custom/index.html",
+  "permissions": [
+    "history",
+    "notifications",
+    "geolocation",
+    "https://*/*"
+  ],
+  "omnibox": {
+    "keyword": "r"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://redmine.renuo.ch/*",
+        "https://git.renuo.ch/*",
+        "https://dashboard.renuo.ch/*",
+        "https://deploy.renuo.ch/*",
+        "https://deploy-develop.renuo.ch/*",
+        "https://www.renuo.ch/*",
+        "https://ci.renuo.ch/*"
+      ],
+      "css": [
+        "src/inject/inject.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://redmine.renuo.ch/*",
+        "https://git.renuo.ch/*",
+        "https://dashboard.renuo.ch/*",
+        "https://deploy.renuo.ch/*",
+        "https://deploy-develop.renuo.ch/*",
+        "https://www.renuo.ch/*",
+        "https://ci.renuo.ch/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
