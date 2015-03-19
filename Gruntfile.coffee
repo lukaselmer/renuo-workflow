@@ -52,6 +52,10 @@ module.exports = (grunt) ->
       gruntfile:
         files: ['Gruntfile.coffee']
 
+      copyTmp:
+        files: ['.tmp/{,*/}{,*/}*.{js,css}']
+        tasks: ['copy:tmp']
+
       #livereload:
       #  options:
       #    livereload: '<%= connect.options.livereload %>'
@@ -268,6 +272,20 @@ module.exports = (grunt) ->
 
   # Copies remaining files to places other tasks can use
     copy:
+      tmp:
+        files: [
+          {
+            expand: true
+            dot: true
+            cwd: '.tmp'
+            dest: '<%= yeoman.app %>/out'
+            src: [
+              #'*.{ico,png,txt}'
+              '{,*/}{,*/}{,*/}*.js'
+              '{,*/}{,*/}{,*/}*.css'
+            ]
+          }
+        ]
       dist:
         files: [
           {
@@ -317,7 +335,7 @@ module.exports = (grunt) ->
       ]
       dist: [
         'coffee'
-        'slim:dist'
+        #'slim:dist'
         'compass:dist'
         'imagemin'
         'svgmin'

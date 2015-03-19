@@ -36,7 +36,7 @@
         "https://ci.renuo.ch/*"
       ],
       "css": [
-        "src/inject/inject.css"
+        "out/styles/inject.css"
       ]
     },
     {
@@ -52,7 +52,7 @@
       "js": [
         "bower_components/jquery/dist/jquery.min.js",
         "bower_components/keymaster/keymaster.js",
-        "out/app.js"
+        "out/scripts/redmine/inject.js"
       ]
     }
   ]
