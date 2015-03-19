@@ -12,13 +12,16 @@ define 'redmine/home', ['helpers/urlHelper'], (urlHelper) ->
       link = $('<a></a>').text(project).attr('href', url)
       $('<li></li>').addClass('project-filterable').append(link).appendTo list if url and url != ''
     leftInner.append list
-    $('#quicksearch').bind 'keyup change input', ->
+    $('#quicksearch').bind('keyup change input', (event) ->
       search = $('#quicksearch').val().toLowerCase()
       $('.project-filterable').each (_id, value) ->
         if $(value).text().toLowerCase().indexOf(search) == -1
           $(value).hide()
         else
           $(value).show()
+    ).bind 'keyup', (event) ->
+      return unless event.keyCode == 13 # enter
+      $('.project-filterable:visible').children()[0].click()
     $('#quicksearch').focus()
 
   initRedmineHomePage() if urlHelper.isRedmineHomePage()
