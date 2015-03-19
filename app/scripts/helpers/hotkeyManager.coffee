@@ -6,7 +6,7 @@ class HotkeyManager
     @registerHotkey('Show help', '?', () => @displayHelp())
     @registerHotkey('Close help', 'esc', () => @hideHelp())
 
-  # more info for the keyCombination: https://github.com/madrobby/keymaster
+  # more info for the keyCombination: http://craig.is/killing/mice
   registerHotkey: (name, keyCombination, func) ->
     @hotkeys.push [keyCombination, name]
     window.Mousetrap.bind(keyCombination, func)
