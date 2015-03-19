@@ -10,3 +10,5 @@ bower_components
 app/scripts/generated/env.js
 dist_production
 app/out
+*.pem
+*.crx
