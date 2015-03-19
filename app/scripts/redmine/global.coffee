@@ -21,12 +21,11 @@ class RedmineGlobal
     # Issue keys
     @hotkeyManager.registerHotkey('Edit issue', 'e', @redirectTo('%issue%/edit'))
 
-  redirectTo: (suffix) -> () ->
-    if suffix.indexOf('%issue%') == 0
+  redirectTo: (suffix) -> () =>
+    if suffix.startsWith('%issue%')
       window.location = suffix.replace('%issue%', "/issues/#{@urlHelper.getBrowserUrlRaw()[1]}")
-    else if suffix.indexOf('%project%') == 0
-      window.location = suffix.replace('%project%',
-        projectUrl = "/projects/#{@urlHelper.getBrowserUrlRaw()[1].split('?')[0]}")
+    else if suffix.startsWith('%project%')
+      window.location = suffix.replace('%project%', "/projects/#{@urlHelper.getBrowserUrlRaw()[1].split('?')[0]}")
     else
       window.location = suffix
 
