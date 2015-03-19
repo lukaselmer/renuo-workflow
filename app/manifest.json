@@ -50,8 +50,9 @@
         "https://ci.renuo.ch/*"
       ],
       "js": [
-        "js/jquery/jquery.min.js",
-        "src/inject/inject.js"
+        "bower_components/jquery/dist/jquery.min.js",
+        "bower_components/keymaster/keymaster.js",
+        "out/app.js"
       ]
     }
   ]
