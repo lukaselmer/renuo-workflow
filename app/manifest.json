@@ -11,10 +11,10 @@
   },
   "default_locale": "en",
   "background": {
-    "page": "src/bg/background.html",
+    "page": "others/bg/background.html",
     "persistent": true
   },
-  "options_page": "src/options_custom/index.html",
+  "options_page": "others/options_custom/index.html",
   "permissions": [
     "history",
     "notifications",
@@ -55,5 +55,8 @@
         "out/scripts/redmine/inject.js"
       ]
     }
+  ],
+  "web_accessible_resources": [
+    "jquery.min.map"
   ]
 }
