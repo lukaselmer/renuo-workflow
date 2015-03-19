@@ -6,11 +6,12 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.3",
-    "keymaster": "~1.6.3"
+    "jquery": "latest",
+    "keymaster": "latest",
+    "underscore-amd": "latest"
   },
   "devDependencies": {
-    "jasmine-expect": "~1.22.3"
+    "jasmine-expect": "latest"
   },
   "authors": [
     "Lukas Elmer <lukas.elmer@renuo.ch> (https://www.renuo.ch)",

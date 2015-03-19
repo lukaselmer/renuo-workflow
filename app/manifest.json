@@ -52,11 +52,21 @@
       "js": [
         "bower_components/jquery/dist/jquery.min.js",
         "bower_components/keymaster/keymaster.js",
-        "out/scripts/redmine/inject.js"
+        "out/scripts/define.js",
+        "out/scripts/helpers/urlHelper.js",
+        "out/scripts/redmine/home.js",
+        "out/scripts/redmine/global.js",
+        "out/scripts/main.js"
+        //"out/scripts/*.js"
+        //"out/scripts/redmine/inject.js"
       ]
     }
   ],
+  "content_security_policy": "script-src 'self'; object-src 'self'",
   "web_accessible_resources": [
-    "jquery.min.map"
+    "out/*.js",
+    "out/*.js.map",
+    "bower_components/*.js",
+    "bower_components/*.map"
   ]
 }
