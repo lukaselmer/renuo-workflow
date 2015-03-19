@@ -20,5 +20,5 @@
     "type": "git",
     "url": "git@git.renuo.ch:renuo/renuo-workflow.git"
   },
-  "appPath": "ext"
+  "appPath": "app"
 }

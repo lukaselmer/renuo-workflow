@@ -46,22 +46,21 @@ module.exports = (grunt) ->
           'compass:server'
           'autoprefixer'
         ]
-      slim:
-        files: ['**/*.slim']
-        tasks: ['slim']
+      #slim:
+      #  files: ['**/*.slim']
+      #  tasks: ['slim']
       gruntfile:
         files: ['Gruntfile.coffee']
 
-      livereload:
-        options:
-          livereload: '<%= connect.options.livereload %>'
-
-        files: [
-          '<%= yeoman.app %>/{,*/}{,*/}{,*/}*.html'
-          '.tmp/styles/{,*/}*.css'
-          '.tmp/scripts/{,*/}{,*/}*.js'
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
+      #livereload:
+      #  options:
+      #    livereload: '<%= connect.options.livereload %>'
+      #  files: [
+      #    '<%= yeoman.app %>/{,*/}{,*/}{,*/}*.html'
+      #    '.tmp/styles/{,*/}*.css'
+      #    '.tmp/scripts/{,*/}{,*/}*.js'
+      #    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+      #  ]
 
   # Make sure code styles are up to par and there are no obvious mistakes
     jshint:
@@ -283,6 +282,7 @@ module.exports = (grunt) ->
               'others/{,*/}{,*/}{,*/}*.js'
               'others/{,*/}{,*/}{,*/}*.png'
               'manifest.json'
+              '_locales/{,*/}{,*/}*.json'
             ]
           }
           #{
