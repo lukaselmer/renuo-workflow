@@ -1,23 +1,22 @@
 'use strict'
 
-define 'helpers/urlHelper', [], ->
-  class UrlHelper
-    constructor: ->
-      this
+class UrlHelper
+  constructor: ->
+    this
 
-    getBrowserDomain: ->
-      window.location.href.split('/')[2]
+  getBrowserDomain: ->
+    window.location.href.split('/')[2]
 
-    getBrowserUrlRaw: ->
-      window.location.href.split('/')[3..-1]
+  getBrowserUrlRaw: ->
+    window.location.href.split('/')[3..-1]
 
-    getBrowserUrl: ->
-      @getBrowserUrlRaw().join('/')
+  getBrowserUrl: ->
+    @getBrowserUrlRaw().join('/')
 
-    isRedmineHomePage: ->
-      @isRedmine() and @getBrowserUrl() == ''
+  isRedmineHomePage: ->
+    @isRedmine() and @getBrowserUrl() == ''
 
-    isRedmine: ->
-      @getBrowserDomain() == 'redmine.renuo.ch'
+  isRedmine: ->
+    @getBrowserDomain() == 'redmine.renuo.ch'
 
-  new UrlHelper()
+define 'helpers/urlHelper', [], -> new UrlHelper()

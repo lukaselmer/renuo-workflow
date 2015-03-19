@@ -1,39 +1,35 @@
 'use strict'
 
-define 'redmine/global', ['helpers/urlHelper'], (urlHelper) ->
-  initRedmineGlobal = ->
-    redirectTo = (suffix) ->
-      () ->
-        if suffix.indexOf('%issue%') == 0
-          window.location = suffix.replace('%issue%', "/issues/#{urlHelper.getBrowserUrlRaw()[1]}")
-        else if suffix.indexOf('%project%') == 0
-          window.location = suffix.replace('%project%', projectUrl = "/projects/#{urlHelper.getBrowserUrlRaw()[1].split('?')[0]}")
-        else
-          window.location = suffix
+class RedmineGlobal
+  constructor: (@urlHelper, @hotkeyManager) ->
+    @initRedmineHotkeys()
 
-    # more info for the keyCombination: https://github.com/madrobby/keymaster
-    initHotkey = (name, keyCombination, func) ->
-      console.log keyCombination + ' = ' + name
+  initRedmineHotkeys: ->
+    # Global keys
+    @hotkeyManager.registerHotkey('Go to home', 'h', @redirectTo('/'))
 
-      key(keyCombination, func)
+    # Project keys
+    @hotkeyManager.registerHotkey('Go to project issues', 'i', @redirectTo('%project%/issues'))
+    @hotkeyManager.registerHotkey('Go to project wiki', 'w', @redirectTo('%project%/wiki'))
+    @hotkeyManager.registerHotkey('Go to project roadmap', 'r', @redirectTo('%project%/roadmap'))
+    @hotkeyManager.registerHotkey('Go to project time entries', 't', @redirectTo('%project%/time_entries'))
+    @hotkeyManager.registerHotkey('Go to project overview', 'o', @redirectTo('%project%'))
+    @hotkeyManager.registerHotkey('Go to project activity', 'a', @redirectTo('%project%/activity'))
+    @hotkeyManager.registerHotkey('Go to project activity', 's', @redirectTo('%project%/settings'))
+    @hotkeyManager.registerHotkey('Create new issue', 'n', @redirectTo('%project%/issues/new'))
 
-    initRedmineHotkeys = ->
-      # Global keys
-      initHotkey('Go to home', 'h', redirectTo('/'))
+    # Issue keys
+    @hotkeyManager.registerHotkey('Edit issue', 'e', @redirectTo('%issue%/edit'))
 
-      # Project keys
-      initHotkey('Go to project issues', 'i', redirectTo('%project%/issues'))
-      initHotkey('Go to project wiki', 'w', redirectTo('%project%/wiki'))
-      initHotkey('Go to project roadmap', 'r', redirectTo('%project%/roadmap'))
-      initHotkey('Go to project time entries', 't', redirectTo('%project%/time_entries'))
-      initHotkey('Go to project overview', 'o', redirectTo('%project%'))
-      initHotkey('Go to project activity', 'a', redirectTo('%project%/activity'))
-      initHotkey('Go to project activity', 's', redirectTo('%project%/settings'))
-      initHotkey('Create new issue', 'n', redirectTo('%project%/issues/new'))
+  redirectTo: (suffix) -> () ->
+    if suffix.indexOf('%issue%') == 0
+      window.location = suffix.replace('%issue%', "/issues/#{@urlHelper.getBrowserUrlRaw()[1]}")
+    else if suffix.indexOf('%project%') == 0
+      window.location = suffix.replace('%project%',
+        projectUrl = "/projects/#{@urlHelper.getBrowserUrlRaw()[1].split('?')[0]}")
+    else
+      window.location = suffix
 
-      # Issue keys
-      initHotkey('Edit issue', 'e', redirectTo('%issue%/edit'))
 
-    initRedmineHotkeys()
-
-  initRedmineGlobal() if urlHelper.isRedmine()
+define 'redmine/global', ['helpers/urlHelper', 'helpers/hotkeyManager'], (urlHelper, hotkeyManager) ->
+  new RedmineGlobal(urlHelper, hotkeyManager) if urlHelper.isRedmine()

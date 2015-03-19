@@ -51,9 +51,10 @@
       ],
       "js": [
         "bower_components/jquery/dist/jquery.min.js",
-        "bower_components/keymaster/keymaster.js",
+        "bower_components/mousetrap/mousetrap.min.js",
         "out/scripts/define.js",
         "out/scripts/helpers/urlHelper.js",
+        "out/scripts/helpers/hotkeyManager.js",
         "out/scripts/redmine/home.js",
         "out/scripts/redmine/global.js",
         "out/scripts/main.js"

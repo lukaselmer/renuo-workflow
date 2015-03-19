@@ -1,3 +1,41 @@
 /*#content {
   background: green !important;
 }*/
+
+.clear-both {
+  clear: both;
+}
+
+.hotkey-modal {
+  background: rgba(0, 0, 0, .6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+
+  .hotkey-modal-inner {
+    background: #fefefe;
+    border-radius: 5px;
+    position: fixed;
+    left: 30%;
+    top: 20%;
+    z-index: 11;
+    width: 40%;
+    padding: 20px;
+    > div {
+      padding: 3px 0;
+      .key-combination, .name {
+        float: left;
+        &.key-combination {
+          width: 20%;
+          font-weight: bold;
+        }
+        &.name {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
