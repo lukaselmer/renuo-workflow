@@ -12,3 +12,4 @@ dist_production
 app/out
 *.pem
 *.crx
+*.zip

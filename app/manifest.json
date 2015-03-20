@@ -58,8 +58,6 @@
         "out/scripts/redmine/home.js",
         "out/scripts/redmine/global.js",
         "out/scripts/main.js"
-        //"out/scripts/*.js"
-        //"out/scripts/redmine/inject.js"
       ]
     }
   ],
