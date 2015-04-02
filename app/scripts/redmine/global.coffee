@@ -6,16 +6,16 @@ class RedmineGlobal
 
   initRedmineHotkeys: ->
     # Global keys
-    @hotkeyManager.registerHotkey('Go to home', 'h', @redirectTo('/'))
+    @hotkeyManager.registerHotkey('Go to home', 'g h', @redirectTo('/'))
 
     # Project keys
-    @hotkeyManager.registerHotkey('Go to project issues', 'i', @redirectTo('%project%/issues'))
-    @hotkeyManager.registerHotkey('Go to project wiki', 'w', @redirectTo('%project%/wiki'))
-    @hotkeyManager.registerHotkey('Go to project roadmap', 'r', @redirectTo('%project%/roadmap'))
-    @hotkeyManager.registerHotkey('Go to project time entries', 't', @redirectTo('%project%/time_entries'))
-    @hotkeyManager.registerHotkey('Go to project overview', 'o', @redirectTo('%project%'))
-    @hotkeyManager.registerHotkey('Go to project activity', 'a', @redirectTo('%project%/activity'))
-    @hotkeyManager.registerHotkey('Go to project activity', 's', @redirectTo('%project%/settings'))
+    @hotkeyManager.registerHotkey('Go to project issues', 'g i', @redirectTo('%project%/issues'))
+    @hotkeyManager.registerHotkey('Go to project wiki', 'g w', @redirectTo('%project%/wiki'))
+    @hotkeyManager.registerHotkey('Go to project roadmap', 'g r', @redirectTo('%project%/roadmap'))
+    @hotkeyManager.registerHotkey('Go to project time entries', 'g t', @redirectTo('%project%/time_entries'))
+    @hotkeyManager.registerHotkey('Go to project overview', 'g o', @redirectTo('%project%'))
+    @hotkeyManager.registerHotkey('Go to project activity', 'g a', @redirectTo('%project%/activity'))
+    @hotkeyManager.registerHotkey('Go to project settings', 'g s', @redirectTo('%project%/settings'))
     @hotkeyManager.registerHotkey('Create new issue', 'n', @redirectTo('%project%/issues/new'))
 
     # Issue keys
