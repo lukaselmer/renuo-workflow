@@ -3,7 +3,7 @@ cp app.pem app/key.pem
 zip -r app.zip app
 echo "please upload the app.zip to https://chrome.google.com/webstore/developer/edit/cbdponefdfobikfhoflfnmmcmmoogleo"
 echo "hint: hit the Upload Updated Package button"
-echo "hit [Enter] to open the finder and the dashboard"
+read -p "hit [Enter] to open the finder and the dashboard"
 open .
 open https://chrome.google.com/webstore/developer/edit/cbdponefdfobikfhoflfnmmcmmoogleo
 rm app/key.pem
