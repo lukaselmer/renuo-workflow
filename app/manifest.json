@@ -2,7 +2,7 @@
   "name": "Renuo Workflow",
   "version": "0.0.3",
   "manifest_version": 2,
-  "description": "Enhances Redmine and Gitlab, and combines them according to the Renuo workflow.",
+  "description": "Enhances Redmine, Gitlab, etc. and combines them according to the Renuo workflow.",
   "homepage_url": "https://www.renuo.ch",
   "icons": {
     "16": "icons/icon16.png",
@@ -14,7 +14,6 @@
     "page": "others/bg/background.html",
     "persistent": true
   },
-  "options_page": "others/options_custom/index.html",
   "permissions": [
     "history",
     "notifications",
