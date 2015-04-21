@@ -1,9 +1,5 @@
 // Type definitions for Chrome 42.0
 
-interface Window{
-  define(definition:string, dependencies:string[], fuc): boolean;
-}
-
 interface String {
   /**
    * Returns true if the string starts with <find>.

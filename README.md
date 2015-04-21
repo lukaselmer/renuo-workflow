@@ -10,7 +10,8 @@ Use ```grunt serve``` for development.
 
 ```
 git clone
-npm install -g tsd grunt-cli
+npm install -g tsd@next
+npm install -g grunt-cli
 tsd reinstall --save --overwrite
 ```
 
@@ -29,6 +30,13 @@ npm install -g coffee-script-to-typescript
 
 ## Dependencies / Type Definitions
 
-Install a new dependency (e.g. jquery): ```tsd query jquery --action install --save```
+Install a new dependency (e.g. jquery): ```tsd install jquery --save```
 
-Reinstall dependencies: ```tsd reinstall --save --overwrite```
+Install existing dependencies:
+
+```
+tsd rebundle
+tsd reinstall
+```
+
+More info: https://github.com/DefinitelyTyped/tsd
