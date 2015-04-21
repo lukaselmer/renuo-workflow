@@ -2,12 +2,11 @@
 
 class UrlHelper {
     getBrowserDomain() {
-        console.log('yep, working!')
         return window.location.href.split('/')[2]
     }
 
     getBrowserUrlRaw() {
-        return window.location.href.split('/').slice(3, -1)
+        return window.location.href.split('/').slice(3)
     }
 
     getBrowserUrl() {
@@ -27,5 +26,3 @@ class UrlHelper {
         return this.getBrowserDomain() == 'redmine.renuo.ch'
     }
 }
-
-window.define('helpers/urlHelper', [], () => new UrlHelper())

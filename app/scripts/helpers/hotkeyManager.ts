@@ -30,5 +30,3 @@ class HotkeyManager {
         return $(".hotkey-modal").remove();
     }
 }
-
-window.define("helpers/hotkeyManager", [], () => new HotkeyManager());

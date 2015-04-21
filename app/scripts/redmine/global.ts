@@ -37,9 +37,3 @@ class RedmineGlobal {
         };
     }
 }
-
-window.define("redmine/global", [], () => {
-    var urlHelper = new UrlHelper();
-    var hotkeyManager = new HotkeyManager();
-    if (urlHelper.isRedmine()) new RedmineGlobal(urlHelper, hotkeyManager);
-});
