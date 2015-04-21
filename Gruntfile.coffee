@@ -15,7 +15,7 @@ module.exports = (grunt) ->
     watch:
       ts:
         files: ['app/scripts/{,*/}{,*/}*.ts']
-        tasks: ['newer:ts']
+        tasks: ['ts']
       coffee:
         files: ['app/scripts/{,*/}{,*/}*.{coffee,litcoffee,coffee.md}']
         tasks: ['newer:coffee:dist']
