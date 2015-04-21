@@ -1,6 +1,7 @@
 ///<reference path="../typings/all.d.ts"/>
+///<reference path="../helpers/urlHelper.ts"/>
 
-window.define("redmine/enhancedPrioritySorting", ["helpers/urlHelper"], (urlHelper) => {
+window.define("redmine/enhancedPrioritySorting", [], () => {
     function initInteractiveIssuesSorting() {
         var numericPriority;
         numericPriority = $(".issue td.cf_5.float");
@@ -10,7 +11,7 @@ window.define("redmine/enhancedPrioritySorting", ["helpers/urlHelper"], (urlHelp
         //console.log numericPriority.size()
     }
 
-    if (urlHelper.isRedmineIssuesPage()) {
+    if (new UrlHelper().isRedmineIssuesPage()) {
         initInteractiveIssuesSorting();
     }
 });

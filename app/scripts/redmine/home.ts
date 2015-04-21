@@ -1,6 +1,7 @@
 ///<reference path="../typings/all.d.ts"/>
+///<reference path="../helpers/urlHelper.ts"/>
 
-window.define("redmine/home", ["helpers/urlHelper"], (urlHelper) => {
+window.define("redmine/home", [], () => {
     function addIssues(leftInner) {
         $("<h3>Issues</h3>").appendTo(leftInner);
         var issuesList = $("<ul></ul>");
@@ -59,7 +60,7 @@ window.define("redmine/home", ["helpers/urlHelper"], (urlHelper) => {
         addProjects(leftInner);
     }
 
-    if (urlHelper.isRedmineHomePage()) {
+    if (new UrlHelper().isRedmineHomePage()) {
         initRedmineHomePage();
     }
 });

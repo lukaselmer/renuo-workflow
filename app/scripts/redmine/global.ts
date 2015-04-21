@@ -1,4 +1,6 @@
 ///<reference path="../typings/all.d.ts"/>
+///<reference path="../helpers/urlHelper.ts"/>
+///<reference path="../helpers/hotkeyManager.ts"/>
 
 class RedmineGlobal {
     constructor(public urlHelper, public hotkeyManager) {
@@ -36,6 +38,8 @@ class RedmineGlobal {
     }
 }
 
-window.define("redmine/global", ["helpers/urlHelper", "helpers/hotkeyManager"], (urlHelper, hotkeyManager) => {
+window.define("redmine/global", [], () => {
+    var urlHelper = new UrlHelper();
+    var hotkeyManager = new HotkeyManager();
     if (urlHelper.isRedmine()) new RedmineGlobal(urlHelper, hotkeyManager);
 });
