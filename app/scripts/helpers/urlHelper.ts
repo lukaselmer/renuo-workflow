@@ -1,16 +1,13 @@
 ///<reference path="../typings/all.d.ts"/>
 
-
 class UrlHelper {
   getBrowserDomain() {
+    console.log('yep, working!')
     return window.location.href.split('/')[2]
   }
 
   getBrowserUrlRaw() {
-    console.log(window.location.href.split('/'))
-    // TOOD: implement this
-    //return window.location.href.split('/')[3.. - 1]
-    return window.location.href.split('/')
+    return window.location.href.split('/').slice(3, -1)
   }
 
   getBrowserUrl() {
@@ -30,3 +27,5 @@ class UrlHelper {
     return this.getBrowserDomain() == 'redmine.renuo.ch'
   }
 }
+
+window.define('helpers/urlHelper', [], () => new UrlHelper())
