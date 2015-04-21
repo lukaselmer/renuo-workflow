@@ -6,6 +6,7 @@ node_modules
 dist
 .tmp
 .sass-cache
+.tscache
 bower_components
 app/scripts/generated/env.js
 dist_production
@@ -13,3 +14,6 @@ app/out
 *.pem
 *.crx
 *.zip
+tsd.d.ts
+app/scripts/typings/tsd
+.ts-devenv
