@@ -16,6 +16,10 @@ class UrlHelper
   isRedmineHomePage: ->
     @isRedmine() and @getBrowserUrl() == ''
 
+  isRedmineIssuesPage: ->
+    url = @getBrowserUrl()
+    @isRedmine() and (url.contains('/issues?') or url.ends_with('/issues'))
+
   isRedmine: ->
     @getBrowserDomain() == 'redmine.renuo.ch'
 
