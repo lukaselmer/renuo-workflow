@@ -48,7 +48,7 @@ module.exports = (grunt) ->
     ts:
       dist:
         src: 'app/scripts/{,*/}{,*/}*.ts'
-        outDir: 'app/out/scripts'
+        out: 'app/out/scripts/app.js' # we could also use the outDir: 'app/out/scripts'
         target: 'es6'
 
     coffee:
