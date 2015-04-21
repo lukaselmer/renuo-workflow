@@ -13,6 +13,9 @@ module.exports = (grunt) ->
     yeoman: appConfig
 
     watch:
+      ts:
+        files: ['app/scripts/{,*/}{,*/}*.ts']
+        tasks: ['newer:ts:dist']
       coffee:
         files: ['app/scripts/{,*/}{,*/}*.{coffee,litcoffee,coffee.md}']
         tasks: ['newer:coffee:dist']
@@ -46,6 +49,12 @@ module.exports = (grunt) ->
         ]
       server: '.tmp'
 
+    ts:
+      dist:
+        src: 'app/scripts/{,*/}{,*/}*.ts'
+        outDir: '.tmp/scripts'
+        target: 'es6'
+
     coffee:
       options:
         sourceMap: true
@@ -58,10 +67,6 @@ module.exports = (grunt) ->
           dest: '.tmp/scripts'
           ext: '.js'
         ]
-
-    ts:
-      default:
-        src: ["**/*.ts", "!node_modules/**/*.ts"]
 
     compass:
       options:
@@ -123,18 +128,15 @@ module.exports = (grunt) ->
     concurrent:
       server: [
         'coffee:dist'
+        'ts:dist'
         'compass:server'
       ]
       test: [
         'coffee'
         'compass'
       ]
-      dist: [
-        'coffee'
-        'compass:dist'
-      ]
 
-  grunt.registerTask 'serve', 'Compile then start a connect web server', (target) ->
+  grunt.registerTask 'serve', 'Compile then start a connect web server', ->
     grunt.task.run [
       'clean:server'
       'concurrent:server'
