@@ -14,3 +14,5 @@ app/out
 *.pem
 *.crx
 *.zip
+tsd.d.ts
+app/scripts/typings/tsd

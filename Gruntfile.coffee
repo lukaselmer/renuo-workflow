@@ -15,7 +15,7 @@ module.exports = (grunt) ->
     watch:
       ts:
         files: ['app/scripts/{,*/}{,*/}*.ts']
-        tasks: ['newer:ts:dist']
+        tasks: ['newer:ts']
       coffee:
         files: ['app/scripts/{,*/}{,*/}*.{coffee,litcoffee,coffee.md}']
         tasks: ['newer:coffee:dist']
@@ -46,10 +46,11 @@ module.exports = (grunt) ->
       server: 'app/out'
 
     ts:
-      dist:
+      default:
         src: 'app/scripts/{,*/}{,*/}*.ts'
         out: 'app/out/scripts/app.js' # we could also use the outDir: 'app/out/scripts'
-        target: 'es6'
+        options:
+          target: 'es6'
 
     coffee:
       options:
@@ -93,7 +94,7 @@ module.exports = (grunt) ->
     concurrent:
       server: [
         'coffee:dist'
-        'ts:dist'
+        'ts'
         'compass:server'
       ]
       test: [
