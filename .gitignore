@@ -16,3 +16,4 @@ app/out
 *.zip
 tsd.d.ts
 app/scripts/typings/tsd
+.ts-devenv
