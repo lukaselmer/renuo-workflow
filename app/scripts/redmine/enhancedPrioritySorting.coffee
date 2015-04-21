@@ -1,6 +1,6 @@
 'use strict'
 
-define 'redmine/enhancedPrioritySorting', ['helpers/urlHelper'], (urlHelper) ->
+window.define 'redmine/enhancedPrioritySorting', ['helpers/urlHelper'], (urlHelper) ->
   initInteractiveIssuesSorting = ->
     numericPriority = $('.issue td.cf_5.float')
     # TODO: implement this

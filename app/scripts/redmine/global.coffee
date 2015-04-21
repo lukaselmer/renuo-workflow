@@ -30,5 +30,5 @@ class RedmineGlobal
       window.location = suffix
 
 
-define 'redmine/global', ['helpers/urlHelper', 'helpers/hotkeyManager'], (urlHelper, hotkeyManager) ->
+window.define 'redmine/global', ['helpers/urlHelper', 'helpers/hotkeyManager'], (urlHelper, hotkeyManager) ->
   new RedmineGlobal(urlHelper, hotkeyManager) if urlHelper.isRedmine()

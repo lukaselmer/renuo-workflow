@@ -26,4 +26,4 @@ class HotkeyManager
   hideHelp: () ->
     $('.hotkey-modal').remove()
 
-define 'helpers/hotkeyManager', [], -> new HotkeyManager()
+window.define 'helpers/hotkeyManager', [], -> new HotkeyManager()

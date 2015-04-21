@@ -1,6 +1,6 @@
 'use strict'
 
-define 'redmine/home', ['helpers/urlHelper'], (urlHelper) ->
+window.define 'redmine/home', ['helpers/urlHelper'], (urlHelper) ->
   addIssues = (leftInner) ->
     $('<h3>Issues</h3>').appendTo leftInner
     issuesList = $('<ul></ul>')
