@@ -37,7 +37,5 @@ class RedmineGlobal {
 }
 
 window.define("redmine/global", ["helpers/urlHelper", "helpers/hotkeyManager"], (urlHelper, hotkeyManager) => {
-    if (urlHelper.isRedmine()) {
-        return new RedmineGlobal(urlHelper, hotkeyManager);
-    }
+    if (urlHelper.isRedmine()) new RedmineGlobal(urlHelper, hotkeyManager);
 });
