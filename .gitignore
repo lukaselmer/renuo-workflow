@@ -6,6 +6,7 @@ node_modules
 dist
 .tmp
 .sass-cache
+.tscache
 bower_components
 app/scripts/generated/env.js
 dist_production

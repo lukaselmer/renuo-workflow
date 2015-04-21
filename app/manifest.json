@@ -56,7 +56,8 @@
         "out/scripts/redmine/home.js",
         "out/scripts/redmine/global.js",
         "out/scripts/redmine/enhancedPrioritySorting.js",
-        "out/scripts/main.js"
+        "out/scripts/main.js",
+        "out/scripts/greeter.js"
       ]
     }
   ],

@@ -33,26 +33,22 @@ module.exports = (grunt) ->
       gruntfile:
         files: ['Gruntfile.coffee']
 
-      copyTmp:
-        files: ['.tmp/{,*/}{,*/}*.{js,css}']
-        tasks: ['copy:tmp']
-
     clean:
       dist:
         files: [
           dot: true
           src: [
-            '.tmp'
+            'app/out'
             'dist/{,*/}*'
             '!dist/.git{,*/}*'
           ]
         ]
-      server: '.tmp'
+      server: 'app/out'
 
     ts:
       dist:
         src: 'app/scripts/{,*/}{,*/}*.ts'
-        outDir: '.tmp/scripts'
+        outDir: 'app/out/scripts'
         target: 'es6'
 
     coffee:
@@ -64,15 +60,15 @@ module.exports = (grunt) ->
           expand: true
           cwd: 'app/scripts'
           src: '{,*/}{,*/}*.coffee'
-          dest: '.tmp/scripts'
+          dest: 'app/out/scripts'
           ext: '.js'
         ]
 
     compass:
       options:
         sassDir: 'app/styles'
-        cssDir: '.tmp/styles'
-        generatedImagesDir: '.tmp/images/generated'
+        cssDir: 'app/out/styles'
+        generatedImagesDir: 'app/out/images/generated'
         imagesDir: 'app/images'
         javascriptsDir: 'app/scripts'
         importPath: 'app/bower_components'
@@ -88,41 +84,10 @@ module.exports = (grunt) ->
         options:
           debugInfo: true
 
-    copy:
-      tmp:
-        files: [
-          {
-            expand: true
-            dot: true
-            cwd: '.tmp'
-            dest: 'app/out'
-            src: [
-              '{,*/}{,*/}{,*/}*.js'
-              '{,*/}{,*/}{,*/}*.css'
-            ]
-          }
-        ]
-      dist:
-        files: [
-          {
-            expand: true
-            dot: true
-            cwd: 'app'
-            dest: 'dist'
-            src: [
-              'others/{,*/}{,*/}{,*/}*.html'
-              'others/{,*/}{,*/}{,*/}*.css'
-              'others/{,*/}{,*/}{,*/}*.js'
-              'others/{,*/}{,*/}{,*/}*.png'
-              'manifest.json'
-              '_locales/{,*/}{,*/}*.json'
-            ]
-          }
-        ]
       styles:
         expand: true
         cwd: 'app/styles'
-        dest: '.tmp/styles/'
+        dest: 'app/out/styles/'
         src: '{,*/}*.css'
 
     concurrent:
