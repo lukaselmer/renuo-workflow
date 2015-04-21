@@ -14,7 +14,7 @@ module.exports = (grunt) ->
 
     watch:
       coffee:
-        files: ['<%= yeoman.app %>/scripts/{,*/}{,*/}*.{coffee,litcoffee,coffee.md}']
+        files: ['app/scripts/{,*/}{,*/}*.{coffee,litcoffee,coffee.md}']
         tasks: ['newer:coffee:dist']
       coffeeTest:
         files: ['test/spec/{,*/}{,*/}*.{coffee,litcoffee,coffee.md}']
@@ -23,7 +23,7 @@ module.exports = (grunt) ->
           'karma'
         ]
       compass:
-        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}']
+        files: ['app/styles/{,*/}*.{scss,sass}']
         tasks: [
           'compass:server'
         ]
@@ -40,8 +40,8 @@ module.exports = (grunt) ->
           dot: true
           src: [
             '.tmp'
-            '<%= yeoman.dist %>/{,*/}*'
-            '!<%= yeoman.dist %>/.git{,*/}*'
+            'dist/{,*/}*'
+            '!dist/.git{,*/}*'
           ]
         ]
       server: '.tmp'
@@ -53,30 +53,32 @@ module.exports = (grunt) ->
       dist:
         files: [
           expand: true
-          cwd: '<%= yeoman.app %>/scripts'
+          cwd: 'app/scripts'
           src: '{,*/}{,*/}*.coffee'
           dest: '.tmp/scripts'
           ext: '.js'
         ]
 
+    ts:
+      default:
+        src: ["**/*.ts", "!node_modules/**/*.ts"]
+
     compass:
       options:
-        sassDir: '<%= yeoman.app %>/styles'
+        sassDir: 'app/styles'
         cssDir: '.tmp/styles'
         generatedImagesDir: '.tmp/images/generated'
-        imagesDir: '<%= yeoman.app %>/images'
-        javascriptsDir: '<%= yeoman.app %>/scripts'
-        #fontsDir: '<%= yeoman.app %>/styles/fonts'
-        importPath: '<%= yeoman.app %>/bower_components'
+        imagesDir: 'app/images'
+        javascriptsDir: 'app/scripts'
+        importPath: 'app/bower_components'
         httpImagesPath: '/images'
         httpGeneratedImagesPath: '/images/generated'
-        #httpFontsPath: '/styles/fonts'
         relativeAssets: false
         assetCacheBuster: false
         raw: 'Sass::Script::Number.precision = 10\n'
       dist:
         options:
-          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+          generatedImagesDir: 'dist/images/generated'
       server:
         options:
           debugInfo: true
@@ -88,9 +90,8 @@ module.exports = (grunt) ->
             expand: true
             dot: true
             cwd: '.tmp'
-            dest: '<%= yeoman.app %>/out'
+            dest: 'app/out'
             src: [
-              #'*.{ico,png,txt}'
               '{,*/}{,*/}{,*/}*.js'
               '{,*/}{,*/}{,*/}*.css'
             ]
@@ -101,8 +102,8 @@ module.exports = (grunt) ->
           {
             expand: true
             dot: true
-            cwd: '<%= yeoman.app %>'
-            dest: '<%= yeoman.dist %>'
+            cwd: 'app'
+            dest: 'dist'
             src: [
               'others/{,*/}{,*/}{,*/}*.html'
               'others/{,*/}{,*/}{,*/}*.css'
@@ -115,7 +116,7 @@ module.exports = (grunt) ->
         ]
       styles:
         expand: true
-        cwd: '<%= yeoman.app %>/styles'
+        cwd: 'app/styles'
         dest: '.tmp/styles/'
         src: '{,*/}*.css'
 
