@@ -1,7 +1,7 @@
 ///<reference path="../typings/all.d.ts"/>
 ///<reference path="../helpers/urlHelper.ts"/>
 
-function addIssues(leftInner) {
+function addIssues(leftInner:JQuery) {
     $("<h3>Issues</h3>").appendTo(leftInner);
     var issuesList = $("<ul></ul>");
 
@@ -19,22 +19,19 @@ function addIssues(leftInner) {
     leftInner.append(issuesList);
 }
 
-function addProjects(leftInner) {
+function addProjects(leftInner:JQuery) {
     $("<h3>All projects </h3>").appendTo(leftInner);
     var list = $("<ul></ul>");
     $("#project_quick_jump_box option").each((_index, value) => {
-        var link, project, url;
-        url = $(value).val();
-        project = $(value).text();
-        link = $("<a></a>").text(project).attr("href", url);
-        if (url && url !== "") {
-            return $("<li></li>").addClass("quicksearchable-home").append(link).appendTo(list);
-        }
+        var url = $(value).val();
+        var project = $(value).text();
+        var link = $("<a></a>").text(project).attr("href", url);
+        if (url && url !== "") $("<li></li>").addClass("quicksearchable-home").append(link).appendTo(list);
     });
     leftInner.append(list);
 }
 
-function initSearch(leftInner) {
+function initSearch(leftInner:JQuery) {
     leftInner.append($("<input>").attr("id", "quicksearch"));
     $("#quicksearch").bind("keyup change input", (event) => {
         var search = $("#quicksearch").val().toLowerCase();
@@ -51,9 +48,9 @@ function initSearch(leftInner) {
     $("#quicksearch").focus();
 }
 
-function initRedmineHomePage() {
+function initRedmineHomePage():void {
     var left = $(".splitcontentleft");
-    var leftInner = $("<div></div").addClass("projects box").appendTo(left);
+    var leftInner:JQuery = $("<div></div>").addClass("projects box").appendTo(left);
     initSearch(leftInner);
     addIssues(leftInner);
     addProjects(leftInner);
