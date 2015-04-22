@@ -16,14 +16,20 @@ class HotkeyManager {
     }
 
     public displayHelp() {
-        var inner, keyCombination, modal, name;
-        inner = $("<div></div>").addClass("hotkey-modal-inner");
+        var inner = $("<div></div>").addClass("hotkey-modal-inner");
         this.hotkeys.forEach((hotkey) => {
-            keyCombination = hotkey[0], name = hotkey[1];
-            return $("<div></div>").append($("<div></div>").addClass("key-combination").text(keyCombination)).append($("<div></div>").addClass("name").text(name)).append($("<div></div>").addClass("clear-both")).appendTo(inner);
+            var keyCombination = hotkey[0]
+            var name = hotkey[1];
+            $("<div></div>").append(
+                $("<div></div>").addClass("key-combination").text(keyCombination)
+            ).append(
+                $("<div></div>").addClass("name").text(name)
+            ).append(
+                $("<div></div>").addClass("clear-both")
+            ).appendTo(inner);
         });
 
-        return modal = $("<div></div>").addClass("hotkey-modal").append(inner).prependTo($("body"));
+        $("<div></div>").addClass("hotkey-modal").append(inner).prependTo($("body"));
     }
 
     public hideHelp() {
