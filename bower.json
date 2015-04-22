@@ -8,7 +8,8 @@
   "dependencies": {
     "jquery": "latest",
     "underscore-amd": "latest",
-    "mousetrap": "latest"
+    "mousetrap": "latest",
+    "sugar": "~1.4.1"
   },
   "devDependencies": {
     "jasmine-expect": "latest"

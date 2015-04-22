@@ -14,8 +14,11 @@ module.exports = (grunt) ->
 
     watch:
       ts:
+        files: ['app/scripts/{,*/}{,*/}*.ts', '!app/scripts/{,*/}{,*/}*Spec.ts']
+        tasks: ['ts:scripts']
+      tsTest:
         files: ['app/scripts/{,*/}{,*/}*.ts']
-        tasks: ['ts']
+        tasks: ['ts:tests', 'karma:unit']
       compass:
         files: ['app/styles/{,*/}*.{scss,sass}']
         tasks: ['compass:server']
@@ -27,9 +30,14 @@ module.exports = (grunt) ->
       server: 'app/out'
 
     ts:
-      default:
-        src: 'app/scripts/{,*/}{,*/}*.ts'
-        out: 'app/out/scripts/app.js' # we could also use the outDir: 'app/out/scripts'
+      scripts:
+        src: ['app/scripts/{,*/}{,*/}*.ts', '!app/scripts/{,*/}{,*/}*Spec.ts']
+        out: 'app/out/scripts/app.js'
+        options:
+          target: 'es6'
+      tests:
+        src: ['app/scripts/{,*/}{,*/}*.ts']
+        out: 'app/out/tests/tests.js'
         options:
           target: 'es6'
 
@@ -44,7 +52,8 @@ module.exports = (grunt) ->
               'icons/**'
               'others/**'
               'bower_components/**'
-              'out/**'
+              'out/scripts/**'
+              'out/styles/**'
             ]
             dest: 'dist/'
           }
@@ -73,13 +82,20 @@ module.exports = (grunt) ->
         dest: 'app/out/styles/'
         src: '{,*/}*.css'
 
+    karma:
+      unit:
+        configFile: 'karma.conf.coffee'
+        singleRun: true
+
     concurrent:
       server: [
-        'ts'
+        'ts:scripts'
+        'ts:tests'
         'compass:server'
       ]
       test: [
-        'ts'
+        'ts:scripts'
+        'ts:tests'
         'compass'
       ]
 
@@ -90,13 +106,17 @@ module.exports = (grunt) ->
       'watch'
     ]
 
-  grunt.registerTask 'default', [
-    'serve'
-  ]
+  grunt.registerTask 'default', ['serve']
 
   grunt.registerTask 'dist', [
     'clean:server'
     'concurrent:server'
     'clean:dist'
     'copy:dist'
+  ]
+
+  grunt.registerTask 'test', [
+    'concurrent:test'
+    'karma'
+    'watch'
   ]
