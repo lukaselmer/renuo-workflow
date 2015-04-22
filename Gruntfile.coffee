@@ -16,33 +16,14 @@ module.exports = (grunt) ->
       ts:
         files: ['app/scripts/{,*/}{,*/}*.ts']
         tasks: ['ts']
-      coffee:
-        files: ['app/scripts/{,*/}{,*/}*.{coffee,litcoffee,coffee.md}']
-        tasks: ['newer:coffee:dist']
-      coffeeTest:
-        files: ['test/spec/{,*/}{,*/}*.{coffee,litcoffee,coffee.md}']
-        tasks: [
-          'newer:coffee:test'
-          'karma'
-        ]
       compass:
         files: ['app/styles/{,*/}*.{scss,sass}']
-        tasks: [
-          'compass:server'
-        ]
+        tasks: ['compass:server']
       gruntfile:
         files: ['Gruntfile.coffee']
 
     clean:
-      dist:
-        files: [
-          dot: true
-          src: [
-            'app/out'
-            'dist/{,*/}*'
-            '!dist/.git{,*/}*'
-          ]
-        ]
+      dist: 'dist'
       server: 'app/out'
 
     ts:
@@ -52,17 +33,21 @@ module.exports = (grunt) ->
         options:
           target: 'es6'
 
-    coffee:
-      options:
-        sourceMap: true
-        sourceRoot: ''
+    copy:
       dist:
         files: [
-          expand: true
-          cwd: 'app/scripts'
-          src: '{,*/}{,*/}*.coffee'
-          dest: 'app/out/scripts'
-          ext: '.js'
+          {
+            cwd: 'app/'
+            expand: true
+            src: [
+              'manifest.json'
+              'icons/**'
+              'others/**'
+              'bower_components/**'
+              'out/**'
+            ]
+            dest: 'dist/'
+          }
         ]
 
     compass:
@@ -78,9 +63,6 @@ module.exports = (grunt) ->
         relativeAssets: false
         assetCacheBuster: false
         raw: 'Sass::Script::Number.precision = 10\n'
-      dist:
-        options:
-          generatedImagesDir: 'dist/images/generated'
       server:
         options:
           debugInfo: true
@@ -93,12 +75,11 @@ module.exports = (grunt) ->
 
     concurrent:
       server: [
-        'coffee:dist'
         'ts'
         'compass:server'
       ]
       test: [
-        'coffee'
+        'ts'
         'compass'
       ]
 
@@ -111,4 +92,11 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'default', [
     'serve'
+  ]
+
+  grunt.registerTask 'dist', [
+    'clean:server'
+    'concurrent:server'
+    'clean:dist'
+    'copy:dist'
   ]

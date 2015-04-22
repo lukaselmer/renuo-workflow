@@ -56,8 +56,8 @@
   ],
   "content_security_policy": "script-src 'self'; object-src 'self'",
   "web_accessible_resources": [
-    "out/*.js",
-    "out/*.js.map",
+    "out/scripts/app.js",
+    "out/scripts/app.js.map",
     "bower_components/*.js",
     "bower_components/*.map"
   ]
