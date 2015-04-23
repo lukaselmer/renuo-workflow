@@ -1,7 +1,8 @@
 ///<reference path="../typings/tsd/jquery/jquery.d.ts"/>
+///<reference path="humanPriority.ts"/>
 
 class Issue {
-    constructor(public id:number, public numericalPriority:number, public index:number) {
+    constructor(public id:number, public numericalPriority:number) {
     }
 
     updateIssuePriority(priority:number) {
@@ -9,7 +10,7 @@ class Issue {
         this.sendUpdateToServer();
     }
 
-    private sendUpdateToServer() {
+    sendUpdateToServer() {
         var csrfToken = $('meta[name="csrf-token"]').attr('content');
         $.ajax({
             type: 'POST',

@@ -1,6 +1,6 @@
 ///<reference path="redmine/global.ts"/>
 ///<reference path="redmine/home.ts"/>
-///<reference path="redmine/enhancedPrioritySorting.ts"/>
+///<reference path="redmine/issueSorting/enhancedPrioritySorting.ts"/>
 
 $(
     () => {
