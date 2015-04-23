@@ -7,7 +7,7 @@ $(
         var urlHelper = new UrlHelper();
         var hotkeyManager = new HotkeyManager();
 
-        if (urlHelper.isRedmineIssuesPage()) initInteractiveIssuesSorting();
+        if (urlHelper.isRedmineIssuesPage()) new EnhancedPrioritySorting();
         if (urlHelper.isRedmine()) new RedmineGlobal(urlHelper, hotkeyManager);
         if (new UrlHelper().isRedmineHomePage()) initRedmineHomePage();
     }
