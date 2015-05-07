@@ -1,14 +1,15 @@
 {
   "name": "renuo-workflow",
   "description": "Renuo Workflow (Redmine, Gitlab, etc.)",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "homepage": "https://redmine.renuo.ch/projects/internal",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "jquery": "latest",
     "underscore-amd": "latest",
-    "mousetrap": "~1.4.6"
+    "mousetrap": "latest",
+    "sugar": "~1.4.1"
   },
   "devDependencies": {
     "jasmine-expect": "latest"

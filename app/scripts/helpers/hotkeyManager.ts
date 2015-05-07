@@ -1,32 +1,37 @@
 ///<reference path="../typings/all.d.ts"/>
+///<reference path="../models/hotkey.ts"/>
 
 class HotkeyManager {
-    hotkeys = [];
+    hotkeys:Hotkey[] = [];
 
     constructor() {
         this.hotkeys = [];
-        this.registerHotkey("Show help", "?", () => this.displayHelp());
-        this.registerHotkey("Close help", "esc", () => this.hideHelp());
+        this.registerHotkey(new Hotkey("Show help", "?", () => this.displayHelp()));
+        this.registerHotkey(new Hotkey("Close help", "esc", () => this.hideHelp()));
     }
 
     // more info for the keyCombination: http://craig.is/killing/mice
-    public registerHotkey(name, keyCombination, func) {
-        this.hotkeys.push([keyCombination, name]);
-        return Mousetrap.bind(keyCombination, func);
+    public registerHotkey(hotkey:Hotkey):void {
+        this.hotkeys.push(hotkey);
+        Mousetrap.bind(hotkey.keyCombination, hotkey.func);
     }
 
-    public displayHelp() {
-        var inner, keyCombination, modal, name;
-        inner = $("<div></div>").addClass("hotkey-modal-inner");
+    public displayHelp():void {
+        var inner = $("<div></div>").addClass("hotkey-modal-inner");
         this.hotkeys.forEach((hotkey) => {
-            keyCombination = hotkey[0], name = hotkey[1];
-            return $("<div></div>").append($("<div></div>").addClass("key-combination").text(keyCombination)).append($("<div></div>").addClass("name").text(name)).append($("<div></div>").addClass("clear-both")).appendTo(inner);
+            $("<div></div>").append(
+                $("<div></div>").addClass("key-combination").text(hotkey.keyCombination)
+            ).append(
+                $("<div></div>").addClass("name").text(hotkey.name)
+            ).append(
+                $("<div></div>").addClass("clear-both")
+            ).appendTo(inner);
         });
 
-        return modal = $("<div></div>").addClass("hotkey-modal").append(inner).prependTo($("body"));
+        $("<div></div>").addClass("hotkey-modal").append(inner).prependTo($("body"));
     }
 
-    public hideHelp() {
-        return $(".hotkey-modal").remove();
+    public hideHelp():void {
+        $(".hotkey-modal").remove();
     }
 }

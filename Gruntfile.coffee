@@ -14,55 +14,49 @@ module.exports = (grunt) ->
 
     watch:
       ts:
+        files: ['app/scripts/{,*/}{,*/}*.ts', '!app/scripts/{,*/}{,*/}*Spec.ts']
+        tasks: ['ts:scripts']
+      tsTest:
         files: ['app/scripts/{,*/}{,*/}*.ts']
-        tasks: ['ts']
-      coffee:
-        files: ['app/scripts/{,*/}{,*/}*.{coffee,litcoffee,coffee.md}']
-        tasks: ['newer:coffee:dist']
-      coffeeTest:
-        files: ['test/spec/{,*/}{,*/}*.{coffee,litcoffee,coffee.md}']
-        tasks: [
-          'newer:coffee:test'
-          'karma'
-        ]
+        tasks: ['ts:tests', 'karma:unit']
       compass:
         files: ['app/styles/{,*/}*.{scss,sass}']
-        tasks: [
-          'compass:server'
-        ]
+        tasks: ['compass:server']
       gruntfile:
         files: ['Gruntfile.coffee']
 
     clean:
-      dist:
-        files: [
-          dot: true
-          src: [
-            'app/out'
-            'dist/{,*/}*'
-            '!dist/.git{,*/}*'
-          ]
-        ]
+      dist: 'dist'
       server: 'app/out'
 
     ts:
-      default:
-        src: 'app/scripts/{,*/}{,*/}*.ts'
-        out: 'app/out/scripts/app.js' # we could also use the outDir: 'app/out/scripts'
+      scripts:
+        src: ['app/scripts/{,*/}{,*/}*.ts', '!app/scripts/{,*/}{,*/}*Spec.ts']
+        out: 'app/out/scripts/app.js'
+        options:
+          target: 'es6'
+      tests:
+        src: ['app/scripts/{,*/}{,*/}*.ts']
+        out: 'app/out/tests/tests.js'
         options:
           target: 'es6'
 
-    coffee:
-      options:
-        sourceMap: true
-        sourceRoot: ''
+    copy:
       dist:
         files: [
-          expand: true
-          cwd: 'app/scripts'
-          src: '{,*/}{,*/}*.coffee'
-          dest: 'app/out/scripts'
-          ext: '.js'
+          {
+            cwd: 'app/'
+            expand: true
+            src: [
+              'manifest.json'
+              'icons/**'
+              'others/**'
+              'bower_components/**'
+              'out/scripts/**'
+              'out/styles/**'
+            ]
+            dest: 'dist/'
+          }
         ]
 
     compass:
@@ -78,9 +72,6 @@ module.exports = (grunt) ->
         relativeAssets: false
         assetCacheBuster: false
         raw: 'Sass::Script::Number.precision = 10\n'
-      dist:
-        options:
-          generatedImagesDir: 'dist/images/generated'
       server:
         options:
           debugInfo: true
@@ -91,14 +82,20 @@ module.exports = (grunt) ->
         dest: 'app/out/styles/'
         src: '{,*/}*.css'
 
+    karma:
+      unit:
+        configFile: 'karma.conf.coffee'
+        singleRun: true
+
     concurrent:
       server: [
-        'coffee:dist'
-        'ts'
+        'ts:scripts'
+        'ts:tests'
         'compass:server'
       ]
       test: [
-        'coffee'
+        'ts:scripts'
+        'ts:tests'
         'compass'
       ]
 
@@ -109,6 +106,22 @@ module.exports = (grunt) ->
       'watch'
     ]
 
-  grunt.registerTask 'default', [
-    'serve'
+  grunt.registerTask 'default', ['serve']
+
+  grunt.registerTask 'dist', [
+    'clean:server'
+    'concurrent:server'
+    'clean:dist'
+    'copy:dist'
+  ]
+
+  grunt.registerTask 'test', [
+    'concurrent:test'
+    'karma'
+    'watch'
+  ]
+
+  grunt.registerTask 'ci', [
+    'concurrent:test'
+    'karma'
   ]

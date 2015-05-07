@@ -1,6 +1,6 @@
 {
   "name": "Renuo Workflow",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "manifest_version": 2,
   "description": "Enhances Redmine, Gitlab, etc. and combines them according to the Renuo workflow.",
   "homepage_url": "https://www.renuo.ch",
@@ -50,14 +50,15 @@
       "js": [
         "bower_components/jquery/dist/jquery.min.js",
         "bower_components/mousetrap/mousetrap.min.js",
+        "bower_components/sugar/release/sugar.min.js",
         "out/scripts/app.js"
       ]
     }
   ],
   "content_security_policy": "script-src 'self'; object-src 'self'",
   "web_accessible_resources": [
-    "out/*.js",
-    "out/*.js.map",
+    "out/scripts/app.js",
+    "out/scripts/app.js.map",
     "bower_components/*.js",
     "bower_components/*.map"
   ]
