@@ -1,6 +1,6 @@
 ///<reference path="../../models/issue.ts"/>
 
-class IssueInitializer {
+class BacklogPriorityBackgroundService {
     constructor(public issues:Issue[]) {
         // TODO: order issues by prio
         /*issues.forEach(function (issue) {

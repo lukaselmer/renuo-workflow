@@ -1,7 +1,7 @@
 ///<reference path="../../typings/all.d.ts"/>
 ///<reference path="../../helpers/urlHelper.ts"/>
 ///<reference path="../../models/issue.ts"/>
-///<reference path="issueInitializer.ts"/>
+///<reference path="backlogPriorityBackgroundService.ts"/>
 
 class EnhancedPrioritySorting {
     issues:Issue[];
@@ -9,7 +9,7 @@ class EnhancedPrioritySorting {
     constructor() {
         this.issues = this.initIssues();
 
-        //new IssueInitializer(this.issues);
+        //new BacklogPriorityBackgroundService(this.issues);
 
     }
 

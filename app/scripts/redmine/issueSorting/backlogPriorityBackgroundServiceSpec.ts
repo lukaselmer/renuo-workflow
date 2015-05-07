@@ -1,10 +1,10 @@
 ///<reference path="../../models/issue.ts"/>
 ///<reference path="../../typings/tsd/jasmine/jasmine.d.ts"/>
-///<reference path="issueInitializer.ts"/>
+///<reference path="backlogPriorityBackgroundService.ts"/>
 
-describe("IssueInitializer", function () {
-    it("can init the IssueInitializer", function () {
-        expect(new IssueInitializer([])).not.toBe(null);
+describe("BacklogPriorityBackgroundService", function () {
+    it("can init the BacklogPriorityBackgroundService", function () {
+        expect(new BacklogPriorityBackgroundService([])).not.toBe(null);
     });
 
     it("sets the correct BP when ticking", function () {
@@ -30,7 +30,7 @@ describe("IssueInitializer", function () {
             resetSpies();
         }
 
-        var issueInitializer:IssueInitializer = new IssueInitializer(issues);
+        var issueInitializer:BacklogPriorityBackgroundService = new BacklogPriorityBackgroundService(issues);
 
         function expectToChangeOnTick(issueNumber:number, newPriority:number) {
             issueInitializer.tick();
