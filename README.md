@@ -15,7 +15,7 @@ for development.
 ## Setup
 
 ```sh
-git clone
+git clone git@git.renuo.ch:renuo/renuo-workflow.git
 npm install -g tsd@next
 npm install -g grunt-cli
 npm install -g karma-cli
