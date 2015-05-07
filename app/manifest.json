@@ -50,6 +50,7 @@
       "js": [
         "bower_components/jquery/dist/jquery.min.js",
         "bower_components/mousetrap/mousetrap.min.js",
+        "bower_components/sugar/release/sugar.min.js",
         "out/scripts/app.js"
       ]
     }

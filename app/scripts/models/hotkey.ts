@@ -1,4 +1,4 @@
 class Hotkey {
-    constructor(public name:string, public keyCombination:string, public func) {
+    constructor(public name:string, public keyCombination:string, public func: () => void) {
     }
 }
