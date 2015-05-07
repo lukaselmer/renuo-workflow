@@ -9,13 +9,12 @@ class EnhancedPrioritySorting {
     constructor() {
         this.issues = this.initIssues();
 
-        new IssueInitializer(this.issues);
+        //new IssueInitializer(this.issues);
 
     }
 
     initIssues() {
         return $(".issue td.cf_5.float").toArray().map(function (el) {
-            console.log(el);
             var priority = $(el).text().toNumber();
             var id = $(el).parent('.issue').children('.id').text().toNumber();
             return new Issue(id, priority);

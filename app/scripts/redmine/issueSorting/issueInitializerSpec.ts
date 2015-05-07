@@ -7,31 +7,51 @@ describe("IssueInitializer", function () {
         expect(new IssueInitializer([])).not.toBe(null);
     });
 
-    it("sets the NP if no NP is set (or NP==0)", function () {
-        var issue1:Issue = new Issue(93588, 0);
-        var issue2:Issue = new Issue(93589, 0);
-        var issue3:Issue = new Issue(93520, 0);
+    it("sets the correct BP when ticking", function () {
+        var issue1:Issue = new Issue(1, 0);
+        var issue2:Issue = new Issue(2, 1);
+        var issue3:Issue = new Issue(3, 10);
+        var issue4:Issue = new Issue(4, 101);
+        var issue5:Issue = new Issue(5, 310);
 
-        spyOn(issue1, 'sendUpdateToServer');
-        spyOn(issue2, 'sendUpdateToServer');
-        spyOn(issue3, 'sendUpdateToServer');
+        var issues = [issue1, issue2, issue3, issue4, issue5];
 
-        var issueInitializer:IssueInitializer = new IssueInitializer([issue1, issue2, issue3]);
+        var spies:jasmine.Spy[] = issues.map(issue => spyOn(issue, 'sendUpdateToServer'));
 
-        expect(issue1.sendUpdateToServer).toHaveBeenCalled();
-        expect(issue1.numericalPriority).toBeGreaterThan(0);
-        expect(issue1.numericalPriority).toBeLessThan(1000);
+        var resetSpies = () => {
+            spies.forEach(spy => spy.calls.reset())
+        };
 
-        expect(issue2.sendUpdateToServer).toHaveBeenCalled();
-        expect(issue2.numericalPriority).toBeGreaterThan(0);
-        expect(issue2.numericalPriority).toBeLessThan(1000);
+        function expectNoCall(except = null) {
+            if (except) expect(except.sendUpdateToServer).toHaveBeenCalled();
+            issues.forEach(function (issue:Issue) {
+                if (issue !== except) expect(issue.sendUpdateToServer).not.toHaveBeenCalled();
+            });
+            resetSpies();
+        }
 
-        expect(issue3.sendUpdateToServer).toHaveBeenCalled();
-        expect(issue3.numericalPriority).toBeGreaterThan(0);
-        expect(issue3.numericalPriority).toBeLessThan(1000);
+        var issueInitializer:IssueInitializer = new IssueInitializer(issues);
 
-        expect(issue1.numericalPriority).not.toBe(issue2.numericalPriority);
-        expect(issue1.numericalPriority).not.toBe(issue3.numericalPriority);
-        expect(issue2.numericalPriority).not.toBe(issue3.numericalPriority);
+        function expectToChangeOnTick(issueNumber:number, newPriority:number) {
+            issueInitializer.tick();
+            var issue = issues[issueNumber - 1];
+            expectNoCall(issue);
+            expect(issue.numericalPriority).toBeCloseTo(newPriority, 0.01);
+        }
+
+        expectNoCall();
+        expectToChangeOnTick(5, 550.5);
+        expectToChangeOnTick(4, 280.25);
+        expectToChangeOnTick(3, 140.625);
+        expectToChangeOnTick(5, 640.125);
+        expectToChangeOnTick(4, 390.375);
+        expectToChangeOnTick(2, 70.3125);
+        expectToChangeOnTick(3, 230.34375);
+        expectToChangeOnTick(5, 695.1875);
+        expectToChangeOnTick(4, 462.765625);
+        expectToChangeOnTick(2, 115.171875);
+        expectToChangeOnTick(3, 288.96875);
+        expectToChangeOnTick(1, 57.5859375);
+        expectToChangeOnTick(2, 173.2773438);
     });
 });
