@@ -86,3 +86,7 @@ We do the following:
 * When a issue is dragged around, only the NP is changed, not the priority (for now)
 ** The new NP will be in the middle of the two jammed issues NP's. If these values are too close to each other, there
 will be a warning in the user interface (has to be resolved manually)
+
+## CI
+
+https://ci.renuo.ch/projects/42
