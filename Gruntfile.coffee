@@ -120,3 +120,8 @@ module.exports = (grunt) ->
     'karma'
     'watch'
   ]
+
+  grunt.registerTask 'ci', [
+    'concurrent:test'
+    'karma'
+  ]

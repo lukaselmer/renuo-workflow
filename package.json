@@ -53,6 +53,6 @@
     "postinstall": "bower install",
     "start": "grunt serve",
     "pretest": "npm install",
-    "test": "grunt lint-test"
+    "test": "grunt ci"
   }
 }
