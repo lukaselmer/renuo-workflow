@@ -54,7 +54,7 @@ More info: https://github.com/DefinitelyTyped/tsd
 
 ## Tests
 
-Use 
+Use
 
 ```sh
 grunt test
