@@ -16,6 +16,8 @@ for development.
 
 ```sh
 git clone git@git.renuo.ch:renuo/renuo-workflow.git
+gem install bundler
+bundle install
 npm install -g tsd@next
 npm install -g grunt-cli
 npm install -g karma-cli
@@ -93,11 +95,4 @@ BacklogPriorityBackgroundService
 ## CI
 
 https://ci.renuo.ch/projects/42
-
-
-
-
-
-
-
 
