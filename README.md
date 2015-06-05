@@ -60,7 +60,6 @@ Use
 grunt test
 ```
 
-
 ## Concepts
 
 ### Issue Sorting and Priority
