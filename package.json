@@ -34,7 +34,7 @@
     "grunt-google-cdn": "^0.4.3",
     "grunt-karma": "^0.10.1",
     "grunt-newer": "^0.7.0",
-    "grunt-ts": "^4.0.1",
+    "grunt-ts": "4.1.2",
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^2.0.0",
     "karma": "^0.12.31",
