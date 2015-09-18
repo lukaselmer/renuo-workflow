@@ -77,7 +77,7 @@ The key problem is that for the product backlog (what will be done next week) we
 However, a customer doesn't want to see that all his tickets are on "Low" priority because they will be planned next
 week. On the other hand, it would be nice if the BP and the priority would be in sync.
 
-We do the following:
+We do the following
 
 * Every BP must be distinct, so the issues can be ordered
 * Every priority is assigned to a BP 0 when the issue is created ~~BP when the issue is created (e.g. Low = between 100 and 300, Normal between 300 and 500, etc.)~~
