@@ -15,7 +15,7 @@ for development.
 ## Setup
 
 ```sh
-git clone git@git.renuo.ch:renuo/renuo-workflow.git
+git clone git@github.com:renuo/renuo-workflow.git
 gem install bundler
 bundle install
 npm install -g tsd@next
