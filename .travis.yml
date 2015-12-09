@@ -8,6 +8,8 @@ before_install:
 - rm npm-shrinkwrap.json
 - export CHROME_BIN=chromium-browser
 - npm install -g bower tsd tslint grunt
+- gem install bundler
+- bundle install
 cache:
   bundler: true
   directories:
