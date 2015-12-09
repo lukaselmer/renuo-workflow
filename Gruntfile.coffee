@@ -61,6 +61,7 @@ module.exports = (grunt) ->
 
     compass:
       options:
+        bundleExec: true
         sassDir: 'app/styles'
         cssDir: 'app/out/styles'
         generatedImagesDir: 'app/out/images/generated'

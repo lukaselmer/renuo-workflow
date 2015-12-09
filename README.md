@@ -1,5 +1,7 @@
 # Renuo Workflow
 
+[![Build Status](https://travis-ci.com/renuo/renuo-workflow.svg?token=rj5SdAuqYuCspU2b6g4m&branch=develop)](https://travis-ci.com/renuo/renuo-workflow) [![Build Status](https://travis-ci.com/renuo/renuo-workflow.svg?token=rj5SdAuqYuCspU2b6g4m&branch=master)](https://travis-ci.com/renuo/renuo-workflow)
+
 ## Summary
 
 Contains the chrome extension to enhance the Renuo workflow, see /app.
@@ -15,7 +17,9 @@ for development.
 ## Setup
 
 ```sh
-git clone git@git.renuo.ch:renuo/renuo-workflow.git
+git clone git@github.com:renuo/renuo-workflow.git
+gem install bundler
+bundle install
 npm install -g tsd@next
 npm install -g grunt-cli
 npm install -g karma-cli
@@ -54,7 +58,7 @@ More info: https://github.com/DefinitelyTyped/tsd
 
 ## Tests
 
-Use 
+Use
 
 ```sh
 grunt test
@@ -92,4 +96,5 @@ BacklogPriorityBackgroundService
 
 ## CI
 
-https://ci.renuo.ch/projects/42
+https://travis-ci.com/renuo/renuo-workflow
+
