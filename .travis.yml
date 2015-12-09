@@ -7,15 +7,16 @@ before_script:
 before_install:
 - rm npm-shrinkwrap.json
 - export CHROME_BIN=chromium-browser
-- npm install -g bower tsd tslint grunt
+- npm install -g bower tsd tslint grunt-cli
+- gem install bundler
+- bundle install
 cache:
   bundler: true
   directories:
-  - node_modules
-  - "$(npm config get prefix)/bin/bower"
-  - "$(npm config get prefix)/bin/tsd"
-  - "$(npm config get prefix)/bin/tslint"
-  - "$(npm config get prefix)/bin/grunt"
+    - node_modules
+    - "$(npm config get prefix)/bin/bower"
+    - "$(npm config get prefix)/bin/tsd"
+    - "$(npm config get prefix)/bin/tslint"
 env:
   global:
   - CXX=g++-4.8
