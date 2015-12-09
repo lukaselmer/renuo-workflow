@@ -1,6 +1,6 @@
 # Renuo Workflow
 
-[![Build Status](https://travis-ci.com/renuo/renuo-workflow.svg?token=rj5SdAuqYuCspU2b6g4m)](https://travis-ci.com/renuo/renuo-workflow)
+[![Build Status](https://travis-ci.com/renuo/renuo-workflow.svg?token=rj5SdAuqYuCspU2b6g4m&branch=develop)](https://travis-ci.com/renuo/renuo-workflow) [![Build Status](https://travis-ci.com/renuo/renuo-workflow.svg?token=rj5SdAuqYuCspU2b6g4m&branch=master)](https://travis-ci.com/renuo/renuo-workflow)
 
 ## Summary
 
