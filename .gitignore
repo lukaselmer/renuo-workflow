@@ -17,3 +17,4 @@ app/out
 tsd.d.ts
 app/scripts/typings/tsd
 .ts-devenv
+*.tmp.txt
