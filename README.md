@@ -96,5 +96,5 @@ BacklogPriorityBackgroundService
 
 ## CI
 
-https://ci.renuo.ch/projects/42
+https://travis-ci.com/renuo/renuo-workflow
 
