@@ -14,10 +14,10 @@ cache:
   bundler: true
   directories:
   - node_modules
-  - "$(npm config get prefix)/bin/bower"
-  - "$(npm config get prefix)/bin/tsd"
-  - "$(npm config get prefix)/bin/tslint"
-  - "$(npm config get prefix)/bin/grunt"
+    #  - "$(npm config get prefix)/bin/bower"
+    #- "$(npm config get prefix)/bin/tsd"
+    #- "$(npm config get prefix)/bin/tslint"
+    #- "$(npm config get prefix)/bin/grunt"
 env:
   global:
   - CXX=g++-4.8
