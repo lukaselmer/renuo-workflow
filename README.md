@@ -1,5 +1,7 @@
 # Renuo Workflow
 
+[![Build Status](https://travis-ci.com/renuo/renuo-workflow.svg?token=rj5SdAuqYuCspU2b6g4m)](https://travis-ci.com/renuo/renuo-workflow)
+
 ## Summary
 
 Contains the chrome extension to enhance the Renuo workflow, see /app.
