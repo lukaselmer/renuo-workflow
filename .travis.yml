@@ -13,11 +13,10 @@ before_install:
 cache:
   bundler: true
   directories:
-    #- node_modules
-    #  - "$(npm config get prefix)/bin/bower"
-    #- "$(npm config get prefix)/bin/tsd"
-    #- "$(npm config get prefix)/bin/tslint"
-    #- "$(npm config get prefix)/bin/grunt"
+    - node_modules
+    - "$(npm config get prefix)/bin/bower"
+    - "$(npm config get prefix)/bin/tsd"
+    - "$(npm config get prefix)/bin/tslint"
 env:
   global:
   - CXX=g++-4.8
