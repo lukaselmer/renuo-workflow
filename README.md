@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.com/renuo/renuo-workflow.svg?token=rj5SdAuqYuCspU2b6g4m&branch=develop)](https://travis-ci.com/renuo/renuo-workflow) [![Build Status](https://travis-ci.com/renuo/renuo-workflow.svg?token=rj5SdAuqYuCspU2b6g4m&branch=master)](https://travis-ci.com/renuo/renuo-workflow)
 
+## Installation
+
+https://chrome.google.com/webstore/detail/renuo-workflow/cbdponefdfobikfhoflfnmmcmmoogleo
+
 ## Summary
 
 Contains the chrome extension to enhance the Renuo workflow, see /app.
