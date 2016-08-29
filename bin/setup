@@ -5,7 +5,6 @@ source ~/.zshrc
 ln -s ../../bin/check .git/hooks/pre-commit
 gem install bundler
 bundle install
-gem install chunky_png
 npm install -g tsd
 npm install -g grunt-cli
 npm install -g karma-cli
