@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+source ~/.zshrc
+
+ln -s ../../bin/check .git/hooks/pre-commit
+gem install bundler
+bundle install
+npm install -g tsd
+npm install -g grunt-cli
+npm install -g karma-cli
+tsd reinstall --save --overwrite

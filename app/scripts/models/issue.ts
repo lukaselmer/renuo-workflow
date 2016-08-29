@@ -6,13 +6,13 @@ class Issue {
     }
 
     updateIssuePriority(priority:number) {
-        // TODO console.log('-- updating issue ' + this.id + ' from ' + this.numericalPriority + ' to ' + priority)
+        // log('-- updating issue ' + this.id + ' from ' + this.numericalPriority + ' to ' + priority)
         this.numericalPriority = priority;
         this.sendUpdateToServer();
     }
 
     sendUpdateToServer() {
-        // TODO: enable server update (tmp disabled)
+        // enable server update (tmp disabled)
         return;
 
 
