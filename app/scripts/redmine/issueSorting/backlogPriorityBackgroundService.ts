@@ -2,13 +2,7 @@
 
 class BacklogPriorityBackgroundService {
     constructor(public issues:Issue[]) {
-        // TODO: order issues by prio
-        /*issues.forEach(function (issue) {
-         console.log(issue)
-         if (issue.numericalPriority !== 0) return;
-
-         //issue.updateIssuePriority(Math.random() * 1000);
-         });*/
+        // not implemented
     }
 
     tick() {
@@ -37,7 +31,6 @@ class BacklogPriorityBackgroundService {
 
     private issueMove(issue:Issue, prevPriority, nextPriority) {
         var middle = (nextPriority + prevPriority) / 2.0;
-        // TODO console.log("next " + nextPriority + ", prev " + prevPriority + ", move " + (middle - issue.numericalPriority) + ", new value " + middle);
         return middle - issue.numericalPriority;
     }
 }

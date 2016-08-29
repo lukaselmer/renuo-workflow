@@ -4,7 +4,7 @@
 
 ## Installation
 
-https://chrome.google.com/webstore/detail/renuo-workflow/cbdponefdfobikfhoflfnmmcmmoogleo
+<https://chrome.google.com/webstore/detail/renuo-workflow/cbdponefdfobikfhoflfnmmcmmoogleo>
 
 ## Summary
 
@@ -22,12 +22,8 @@ for development.
 
 ```sh
 git clone git@github.com:renuo/renuo-workflow.git
-gem install bundler
-bundle install
-npm install -g tsd@next
-npm install -g grunt-cli
-npm install -g karma-cli
-tsd reinstall --save --overwrite
+cd renuo-workflow
+bin/setup
 ```
 
 ## Converting Coffeescript to Typescript
@@ -38,10 +34,10 @@ npm install -g coffee-script-to-typescript
 
 ## Deployment
 
-* Download the app.pem from here: https://redmine.renuo.ch/attachments/download/1926/app.pem
+* Download the app.pem from here: <https://redmine.renuo.ch/attachments/download/1926/app.pem>
 * Increase the version number in manifest.json, bower.json, package.json (TODO: automate this).
 * Use pack.sh to pack the extension.
-* Upload it to here: https://chrome.google.com/webstore/developer/dashboard
+* Upload it to here: <https://chrome.google.com/webstore/developer/dashboard>
 
 ## Dependencies / Type Definitions
 
@@ -58,7 +54,7 @@ tsd rebundle
 tsd reinstall
 ```
 
-More info: https://github.com/DefinitelyTyped/tsd
+More info: <https://github.com/DefinitelyTyped/tsd>
 
 ## Tests
 
@@ -77,7 +73,7 @@ There are 2 different priorities in the system.
 * The human readable *Priority* (e.g. Normal, High, Urgent, etc.)
 * Is shared and entered by the customer
   * Is relative in each project
-* The backlog priority *BP* 
+* The backlog priority *BP*
   * This priority is used to plan sprints (the company backlog, across multiple projects)
   * Enables drag'n'drop functionality
 
@@ -91,14 +87,12 @@ We do the following
 * Every priority is assigned to a BP 0 when the issue is created ~~BP when the issue is created (e.g. Low = between 100 and 300, Normal between 300 and 500, etc.)~~
 * When a priority is changed, the BP is not changed (for now)
 * When a issue is dragged around, only the BP is changed, not the priority (for now)
-  * The new BP will be in the middle of the two jammed issues BP's. ~~If these values are too close to each other, there
-  will be a warning in the user interface (has to be resolved manually)~~
-* In the background (e.g. every 2 seconds), we run a service which will distribute the issues, see
-BacklogPriorityBackgroundService
+  * The new BP will be in the middle of the two jammed issues BP's. ~~If these values are too close to each other, there will be a warning in the user interface (has to be resolved manually)~~
+* In the background (e.g. every 2 seconds), we run a service which will distribute the issues, see BacklogPriorityBackgroundService
   * This service will try to evenly distribute the priorities using a greedy algorithm so that the single issues can be
   updated separately
 
 ## CI
 
-https://travis-ci.com/renuo/renuo-workflow
+<https://travis-ci.com/renuo/renuo-workflow>
 

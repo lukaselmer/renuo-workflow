@@ -1,0 +1,36 @@
+#!/bin/zsh
+
+source ~/.zshrc
+
+grep -i --exclude-dir=app/scripts/typings -r 'console.log' app/scripts
+if [ $? -eq 0 ]; then
+  echo 'console.log found. Please fix them and try again, commit aborted'
+  exit 1
+fi
+
+mdl .
+if [ ! $? -eq 0 ]; then
+  echo 'Violated markdown rules, see https://github.com/mivok/markdownlint/blob/master/docs/RULES.md, commit aborted'
+  exit 1
+fi
+
+# scss-lint app/assets/stylesheets/**/*.scss
+# if [ ! $? -eq 0 ]; then
+#   echo 'scss-lint detected issues, commit aborted'
+#   exit 1
+# fi
+
+# Exec grunt lints and tests
+# grunt lint
+# RC=$?
+# if [ ! $RC -eq 0 ]; then
+#   echo 'grunt lint failed!'
+#   exit 1
+# fi
+
+grunt ci
+RC=$?
+if [ ! $RC -eq 0 ]; then
+  echo 'grunt test failed!'
+  exit 1
+fi
